@@ -47,6 +47,7 @@ def mergeSort(L, compare = lambda x, y: x < y):
         right = mergeSort(L[middle:], compare)
         return merge(left, right, compare)
     
+
     
     
     
