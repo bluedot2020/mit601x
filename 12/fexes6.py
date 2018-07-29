@@ -11,10 +11,19 @@ author: bluedot2020
 import random
 
 #set up L
-L = []
-for i in range(10):
-    L.append(random.randint(1,30))
 
+def genList():
+    L = []
+    for i in range(10):
+        L.append(random.randint(1,30))
+    return L
+
+def unique(L):
+    result = []
+    for i in range(len(L)):
+        if L[i] not in result:
+            result.append(L[i])
+    return result
 
 def mySort(L):
     """L a list of unique elements"""
@@ -28,3 +37,13 @@ def mySort(L):
                 L[j] = L[j-1]
                 L[j-1]=temp
         
+def newSort(L):
+    """L a list with unique elements"""
+    for i in range(len(L) - 1):
+        j = i + 1
+        while j < len(L):
+            if L[i] > L[j]:
+                temp = L[i]
+                L[i] = L[j]
+                L[j] = temp
+        j += 1
