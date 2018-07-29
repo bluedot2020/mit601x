@@ -33,3 +33,23 @@ def merge(left, right, compare):
         result.append(right[j])
         j += 1
     return result
+
+def mergeSort(L, compare = lambda x, y: x < y):
+    """Assumes L is a list, compare defines an ordering on 
+    elements of L
+    Returns a new sorted list with the same elements as L"""
+    
+    if len(L) < 2:
+        return L[:]
+    else:
+        middle = L//2
+        left = mergeSort(L[:middle], compare)
+        right = mergeSort(L[middle:], compare)
+        return merge(left, right, compare)
+    
+    
+    
+    
+    
+    
+    
